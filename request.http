@@ -1,0 +1,182 @@
+GET http://localhost:8000/api/v1/contact/
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+###
+
+POST http://localhost:8000/api/v1/contact/
+Content-Type: application/json
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+{
+    "city": "Сочи",
+    "street": "Пушкина",
+    "house": "10b",
+    "structure": "23",
+    "apartment": "12",
+    "phone": "89885468743" 
+}
+
+###
+
+GET http://localhost:8000/api/v1/category/
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+###
+
+POST http://localhost:8000/api/v1/category/
+Content-Type: application/json
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+{
+    "name": "Компьютерная техника"
+}
+
+###
+
+GET http://localhost:8000/api/v1/product/
+Content-Type: application/json
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+###
+
+POST http://localhost:8000/api/v1/product/
+Content-Type: application/json
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+{
+    "name": "Монитор",
+    "category": 4
+}
+
+###
+
+GET http://localhost:8000/api/v1/parameter/
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+###
+
+POST http://localhost:8000/api/v1/parameter/
+Content-Type: application/json
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+{
+    "name": "Диагональ"
+}
+
+###
+
+GET http://localhost:8000/api/v1/productparameter/
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+###
+
+POST http://localhost:8000/api/v1/productparameter/
+Content-Type: application/json
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+{
+    "parameter": 10,
+    "value": "31 дюйм, Изогнутый"
+}
+
+###
+
+GET http://localhost:8000/api/v1/shop/
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+###
+
+POST http://localhost:8000/api/v1/shop/
+Content-Type: application/json
+Authorization: token c3fdf77309b9647131ad17657b03faf25fd7d117
+
+{   
+    "user": 4,
+    "name": "Perecrestok",
+    "address": 3,
+    "url": "https://www.perecrestok.com",
+    "positions":[
+        {"product": 3,
+        "external_id": 3,
+        "quantity": 26,
+        "price": 80,
+        "product_parameters": 8
+        },
+        {"product": 2,
+        "external_id": 2,
+        "quantity": 25,
+        "price": 760,
+        "product_parameters": 8
+        }
+    ]
+}
+
+###
+
+DELETE http://localhost:8000/api/v1/shop/31/
+Authorization: token c3fdf77309b9647131ad17657b03faf25fd7d117
+
+###
+
+GET http://localhost:8000/api/v1/order_view/
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+###
+
+GET http://localhost:8000/api/v1/productinfo/
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+###
+
+GET http://localhost:8000/api/v1/order_item_view/
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+###
+
+POST http://localhost:8000/api/v1/my_order/
+# использовать id productinfo
+Content-Type: application/json
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+{
+    "user": 1,
+    "order": 1,
+    "address": 3,
+    "order_items": [
+    {"product_info": 14, "quantity":1, "product_parameters":7},
+    {"product_info": 13, "quantity":1, "product_parameters":8}
+    ]
+}
+
+###
+
+#######################################################
+
+###
+
+GET http://localhost:8000/basket/
+Authorization: token 30e1d8a60962ae4b99c6380d7d4c953173b0c3a6
+
+###
+
+POST http://localhost:8000/basket/
+Content-Type: application/x-www-form-urlencoded
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+
+"items": [ { "external_id": 2, "quantity": 13 } ]
+
+###
+
+POST http://localhost:8000/order/
+Content-Type: application/json
+Authorization: token ca3ac9f452d690f4f7b39336f46af7adce48ea90
+
+{
+    "state": "new",
+    "address": 2
+}
+
+
+
+

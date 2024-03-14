@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Home page</h1>
+    <hr>
+    {% if user.is_authenticated %}
+<!--        <a href="{% url 'logout' %}">Logout</a>-->
+
+<!--В Django 5-ой версии была убрана возможность логаута через GET-запрос.-->
+<!--Из-за чего представленная в видео реализация стала выдавать ошибку 405 "method not allowed (GET)". -->
+<!--Обойти её можно заменив строку <a href="{% url 'logout'%}">Logout</a> К примеру на-->
+
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Log out (Выход)</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login (Вход)</a> |
+        <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+{% endblock %}
